@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  (C) 2022 Smile (<https://www.smile.eu>)
+  License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <menuitem id="menu_api_rest" name="Api Rest" sequence="100" groups="smile_api_rest.configuration_manager"/>
+
+    <record id="view_api_rest_version_tree" model="ir.ui.view">
+        <field name="model">api.rest.version</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="active"/>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_api_rest_version_form">
+        <field name="model">api.rest.version</field>
+        <field name="arch" type="xml">
+            <form string="Version">
+                <sheet>
+                    <div class="o_button_box" name="button_box">
+                        <button type="object" class="o_stat_button"
+                                icon="fa-globe" name="go_to_api_docs">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_text">Go to<br/>API Docs
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <widget name="web_ribbon" title="Inactive" bg_color="bg-danger"
+                            invisible="active"/>
+
+                    <div class="o_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <group string="API Information">
+                        <field name="active" widget="boolean_toggle"/>
+                        <field name="description"/>
+                        <field name="active_log" widget="boolean_toggle"/>
+                        <field name="active_session" widget="boolean_toggle"/>
+                        <field name="last_usage_date" readonly="1"
+                               modifiers="{'invisible': [('active_log', '=', False)]}"/>
+                        <field name="mobile_polling_version"/>
+                        <field name="mobile_polling_url"/>
+                        <field name="force_update"/>
+                    </group>
+
+                    <notebook colspan="4">
+                        <page string="Paths">
+                            <field name="path_ids"
+
+                                   nolabel="1"/>
+                            <!--                        context="{'default_version_id': active_id}"-->
+                        </page>
+
+                        <page string="Security">
+                            <field name="user_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="api_rest_key"/>
+                                </list>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="api_rest_key"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+
+                        <page string="Logs"
+                              modifiers="{'invisible': [('active_log', '=', False)]}">
+                            <field name="log_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_api_rest_version" model="ir.actions.act_window">
+        <field name="name">Version</field>
+        <field name="res_model">api.rest.version</field>
+        <field name="view_mode">list,form</field>
+        <!--        <field name="search_view_id" ref="sale_order_view_search_inherit_sale"/>-->
+        <field name="context">{}</field>
+        <!-- <field name="path">versions</field> -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new quotation, the first step of a new sale!
+            </p>
+            <p>
+                Once the quotation is confirmed, it becomes a sales order.
+                <br/>
+                You will be able to create an invoice and collect the payment.
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_action_api_rest_version"
+              action="action_api_rest_version"
+              parent="menu_api_rest" sequence="10"/>
+
+</odoo>
