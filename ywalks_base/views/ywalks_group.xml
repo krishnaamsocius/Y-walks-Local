@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- GROUP LIST -->
+    <record id="view_ywalks_group_list" model="ir.ui.view">
+        <field name="name">ywalks.group.list</field>
+        <field name="model">ywalks.group</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="league_id"/>
+                <field name="owner_id"/>
+                <field name="is_public"/>
+                <field name="member_count"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- GROUP FORM -->
+    <record id="view_ywalks_group_form" model="ir.ui.view">
+        <field name="name">ywalks.group.form</field>
+        <field name="model">ywalks.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="league_id"/>
+                        <field name="owner_id"/>
+                        <field name="is_public"/>
+                    </group>
+
+                    <group>
+                        <field name="description"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Members">
+                            <field name="member_ids">
+                                <list>
+                                    <field name="user_id"/>
+                                    <field name="joined_on"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ywalks_group" model="ir.actions.act_window">
+        <field name="name">Groups</field>
+        <field name="res_model">ywalks.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

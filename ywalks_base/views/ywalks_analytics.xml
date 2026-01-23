@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_ywalks_analytics_form" model="ir.ui.view">
+        <field name="name">ywalks.analytics.form</field>
+        <field name="model">ywalks.analytics</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <group string="Usage Metrics">
+                    <field name="active_users" readonly="1"/>
+                    <field name="total_steps" readonly="1"/>
+                    <field name="total_rewards" readonly="1"/>
+                    <field name="active_groups" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ywalks_analytics" model="ir.actions.act_window">
+        <field name="name">Analytics</field>
+        <field name="res_model">ywalks.analytics</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

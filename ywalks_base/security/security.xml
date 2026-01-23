@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Y-Walks User -->
+    <record id="group_ywalks_user" model="res.groups">
+        <field name="name">Y-Walks User</field>
+<!--        <field name="category_id" ref="base.module_category_hidden"/>-->
+    </record>
+
+    <!-- Y-Walks Admin -->
+    <record id="group_ywalks_admin" model="res.groups">
+        <field name="name">Y-Walks Admin</field>
+        <field name="implied_ids" eval="[(4, ref('group_ywalks_user'))]"/>
+<!--        <field name="category_id" ref="base.module_category_hidden"/>-->
+    </record>
+
+</odoo>

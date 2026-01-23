@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cron_daily_steps_leaderboard" model="ir.cron">
+        <field name="name">Daily Steps Leaderboard</field>
+        <field name="model_id" ref="model_ywalks_leaderboard_entry"/>
+        <field name="state">code</field>
+        <field name="code">model.compute_daily_steps()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="cron_daily_coins_leaderboard" model="ir.cron">
+        <field name="name">Daily Coins Leaderboard</field>
+        <field name="model_id" ref="model_ywalks_leaderboard_entry"/>
+        <field name="state">code</field>
+        <field name="code">model.compute_daily_coins()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="cron_daily_streak_leaderboard" model="ir.cron">
+        <field name="name">Daily Streak Leaderboard</field>
+        <field name="model_id" ref="model_ywalks_leaderboard_entry"/>
+        <field name="state">code</field>
+        <field name="code">model.compute_daily_streak()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

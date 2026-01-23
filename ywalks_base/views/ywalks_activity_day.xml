@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- LIST VIEW -->
+    <record id="view_ywalks_activity_day_list" model="ir.ui.view">
+        <field name="name">ywalks.activity.day.list</field>
+        <field name="model">ywalks.activity.day</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="user_id"/>
+                <field name="activity_date"/>
+                <field name="steps"/>
+                <field name="is_active_day"/>
+            </list>
+        </field>
+    </record>
+
+     <!-- FORM VIEW -->
+    <record id="view_ywalks_activity_day_form" model="ir.ui.view">
+        <field name="name">ywalks.activity.day.form</field>
+        <field name="model">ywalks.activity.day</field>
+        <field name="arch" type="xml">
+            <form string="Daily Activity">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="activity_date"/>
+                        </group>
+                        <group>
+                            <field name="steps"/>
+                            <field name="distance_km"/>
+                            <field name="calories"/>
+                            <field name="is_active_day" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ywalks_activity_day_calendar" model="ir.ui.view">
+    <field name="name">ywalks.activity.day.calendar</field>
+    <field name="model">ywalks.activity.day</field>
+    <field name="arch" type="xml">
+
+        <calendar
+            string="Daily Activities"
+            mode="month"
+            date_start="activity_date"
+            color="is_active_day"
+            hide_time="true"
+            event_limit="5"
+        >
+            <field name="display_name"/>
+            <field name="user_id" invisible="1"/>
+        </calendar>
+
+    </field>
+</record>
+
+     <record id="action_ywalks_activity_day" model="ir.actions.act_window">
+        <field name="name">Daily Activities</field>
+        <field name="res_model">ywalks.activity.day</field>
+        <field name="view_mode">list,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create daily activity records to track user streaks.
+            </p>
+        </field>
+    </record>
+</odoo>

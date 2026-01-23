@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- LIST VIEW -->
+    <record id="view_ywalks_user_streak_list" model="ir.ui.view">
+        <field name="name">ywalks.user.streak.list</field>
+        <field name="model">ywalks.user.streak</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="user_id"/>
+                <field name="current_streak"/>
+                <field name="longest_streak"/>
+                <field name="last_active_date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
+    <record id="view_ywalks_user_streak_form" model="ir.ui.view">
+        <field name="name">ywalks.user.streak.form</field>
+        <field name="model">ywalks.user.streak</field>
+        <field name="arch" type="xml">
+            <form string="User Streak">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id" readonly="1"/>
+                            <field name="last_active_date" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="current_streak" readonly="1"/>
+                            <field name="longest_streak" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ywalks_user_streak" model="ir.actions.act_window">
+        <field name="name">User Streaks</field>
+        <field name="res_model">ywalks.user.streak</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                User walking streaks are calculated automatically based on daily activity.
+            </p>
+        </field>
+    </record>
+
+</odoo>

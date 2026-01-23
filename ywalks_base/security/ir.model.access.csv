@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ywalks_activity_day,ywalks.activity.day,model_ywalks_activity_day,,1,1,1,1
+access_ywalks_user_streak,ywalks.user.streak,model_ywalks_user_streak,,1,0,0,0
+access_ywalks_wallet,ywalks.wallet,model_ywalks_wallet,,1,0,0,0
+access_ywalks_wallet_tx,ywalks.wallet.transaction,model_ywalks_wallet_transaction,,1,0,0,0
+access_ywalks_reward_rule,ywalks.reward.rule,model_ywalks_reward_rule,,1,1,1,1
+access_ywalks_group,ywalks.group,model_ywalks_group,,1,1,1,1
+access_ywalks_group_member,ywalks.group.member,model_ywalks_group_member,,1,1,1,1
+access_ywalks_leaderboard,ywalks.leaderboard.entry,model_ywalks_leaderboard_entry,,1,0,0,0
+access_ywalks_league,ywalks.league,model_ywalks_league,base.group_system,1,1,1,1
+
+
+
+

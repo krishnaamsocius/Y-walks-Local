@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem id="menu_ywalks_root"
+              name="Y-Walks"
+              sequence="50"/>
+
+    <!-- Activity Menu -->
+    <menuitem id="menu_ywalks_activity"
+              name="Activity"
+              parent="menu_ywalks_root"
+              sequence="10"/>
+
+    <!-- Daily Activity -->
+    <menuitem id="menu_ywalks_activity_day"
+              name="Daily Activity"
+              parent="menu_ywalks_activity"
+              action="action_ywalks_activity_day"
+              sequence="10"/>
+
+    <!-- Streaks -->
+    <menuitem id="menu_ywalks_user_streak"
+              name="Streaks"
+              parent="menu_ywalks_activity"
+              action="action_ywalks_user_streak"
+              sequence="20"/>
+    <!-- Wallets -->
+    <menuitem id="menu_ywalks_wallet"
+              name="Wallet"
+              parent="menu_ywalks_root"
+              sequence="30"/>
+
+
+    <!-- User Wallets -->
+    <menuitem id="menu_ywalks_wallets"
+              name="User Wallets"
+              parent="menu_ywalks_wallet"
+              action="action_ywalks_wallet"
+              sequence="10"/>
+
+
+    <!-- Reward Rules -->
+    <menuitem id="menu_ywalks_reward_rules"
+              name="Reward Rules"
+              parent="menu_ywalks_wallet"
+              action="action_ywalks_reward_rule"
+              sequence="20"/>
+
+    <menuitem id="menu_ywalks_groups"
+              name="Groups"
+              parent="menu_ywalks_root"
+              sequence="40"
+              action="action_ywalks_group"/>
+
+    <menuitem id="menu_ywalks_leaderboard"
+              name="Leaderboards"
+              parent="menu_ywalks_root"
+              action="action_ywalks_leaderboard"
+              sequence="50"/>
+
+    <menuitem id="menu_ywalks_league"
+              name="Leagues"
+              parent="menu_ywalks_root"
+              action="action_ywalks_league"
+              sequence="20"/>
+
+<!--        <menuitem id="menu_ywalks_analytics"-->
+<!--              name="Analytics"-->
+<!--              parent="menu_ywalks_root"-->
+<!--              action="action_ywalks_analytics"-->
+<!--              sequence="30"/>-->
+
+
+</odoo>
