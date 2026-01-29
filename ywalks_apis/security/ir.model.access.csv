@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mobile_otp,access.mobile.otp,model_mobile_otp,,1,1,1,1
